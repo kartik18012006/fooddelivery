@@ -1,0 +1,239 @@
+.order-management {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.header-stats {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat-badge {
+  padding: 8px 16px;
+  background: var(--white);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stat-badge.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success);
+}
+
+.stat-badge.warning {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: var(--warning);
+}
+
+.stat-badge.danger {
+  background-color: rgba(229, 57, 53, 0.1);
+  color: var(--red);
+}
+
+.filters-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--light-grey);
+  max-width: 500px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  flex: 1;
+}
+
+.status-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 8px 16px;
+  background: var(--white);
+  border: 1px solid var(--light-grey);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.filter-chip:hover {
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+}
+
+.filter-chip.active {
+  background-color: var(--primary-green);
+  color: var(--white);
+  border-color: var(--primary-green);
+}
+
+.table-container {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead {
+  background-color: var(--light-grey);
+}
+
+.data-table th {
+  padding: 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dark-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.data-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--light-grey);
+  font-size: 14px;
+}
+
+.data-table tbody tr:hover {
+  background-color: rgba(46, 125, 50, 0.02);
+}
+
+.order-id {
+  font-weight: 600;
+  color: var(--primary-green);
+  font-family: monospace;
+}
+
+.amount {
+  font-weight: 600;
+  color: var(--black);
+}
+
+.payment-badge {
+  padding: 4px 8px;
+  background-color: rgba(46, 125, 50, 0.1);
+  color: var(--primary-green);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-badge.placed {
+  background-color: rgba(156, 39, 176, 0.1);
+  color: #9C27B0;
+}
+
+.status-badge.preparing {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: var(--warning);
+}
+
+.status-badge.picked {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196F3;
+}
+
+.status-badge.out_for_delivery {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success);
+}
+
+.status-badge.delivered {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success);
+}
+
+.status-badge.cancelled {
+  background-color: rgba(229, 57, 53, 0.1);
+  color: var(--red);
+}
+
+.time-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.text-muted {
+  color: var(--grey);
+  font-size: 12px;
+  font-style: italic;
+}
+
+.small-text {
+  font-size: 11px;
+  color: var(--grey);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  color: var(--grey);
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: var(--light-grey);
+  color: var(--primary-green);
+}
+
+.icon-btn.danger:hover {
+  color: var(--red);
+  background-color: rgba(229, 57, 53, 0.1);
+}
+
