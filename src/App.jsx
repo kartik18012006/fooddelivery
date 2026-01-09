@@ -15,15 +15,58 @@ import Analytics from './pages/Analytics/Analytics'
 import Settings from './pages/Settings/Settings'
 import Security from './pages/Security/Security'
 import CMS from './pages/CMS/CMS'
+import RestaurantDashboard from './pages/Restaurant/RestaurantDashboard'
+import DeliveryDashboard from './pages/Delivery/DeliveryDashboard'
 
 function App() {
   const isAuthenticated = localStorage.getItem('admin_token') !== null
+  const userType = localStorage.getItem('user_type')
+
+  // Protected route component for admin (customer type or no type = admin)
+  const AdminRoute = ({ children }) => {
+    if (!isAuthenticated) {
+      return <Navigate to="/login" replace />
+    }
+    // If user is restaurant or delivery, redirect to their dashboard
+    if (userType === 'restaurant') {
+      return <Navigate to="/restaurant" replace />
+    }
+    if (userType === 'delivery') {
+      return <Navigate to="/delivery" replace />
+    }
+    // customer type or no type = admin panel access
+    return children
+  }
+
+  // Protected route component for restaurant
+  const RestaurantRoute = ({ children }) => {
+    if (!isAuthenticated) {
+      return <Navigate to="/login" replace />
+    }
+    if (userType !== 'restaurant') {
+      return <Navigate to="/login" replace />
+    }
+    return children
+  }
+
+  // Protected route component for delivery
+  const DeliveryRoute = ({ children }) => {
+    if (!isAuthenticated) {
+      return <Navigate to="/login" replace />
+    }
+    if (userType !== 'delivery') {
+      return <Navigate to="/login" replace />
+    }
+    return children
+  }
 
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" replace />} />
-        <Route path="/" element={!isAuthenticated ? <Navigate to="/login" replace /> : <Layout />}>
+        <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to={userType === 'restaurant' ? '/restaurant' : userType === 'delivery' ? '/delivery' : '/dashboard'} replace />} />
+        
+        {/* Admin Routes */}
+        <Route path="/" element={<AdminRoute><Layout /></AdminRoute>}>
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="users" element={<UserManagement />} />
@@ -40,6 +83,12 @@ function App() {
           <Route path="security" element={<Security />} />
           <Route path="cms" element={<CMS />} />
         </Route>
+
+        {/* Restaurant Routes */}
+        <Route path="/restaurant" element={<RestaurantRoute><RestaurantDashboard /></RestaurantRoute>} />
+
+        {/* Delivery Partner Routes */}
+        <Route path="/delivery" element={<DeliveryRoute><DeliveryDashboard /></DeliveryRoute>} />
       </Routes>
     </Router>
   )
