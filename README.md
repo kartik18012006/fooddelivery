@@ -54,6 +54,38 @@ Use any email and password to login (mock authentication for now).
 npm run build
 ```
 
+## Deployment to Vercel
+
+The project is configured for Vercel deployment with proper routing support.
+
+### Steps to Deploy:
+
+1. **Connect to Vercel:**
+   - Go to [vercel.com](https://vercel.com)
+   - Import your GitHub repository: `kartik18012006/fooddelivery`
+   - Vercel will auto-detect Vite framework
+
+2. **Build Settings (Auto-detected):**
+   - Framework Preset: Vite
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Install Command: `npm install`
+
+3. **Deploy:**
+   - Click "Deploy"
+   - Vercel will automatically deploy on every push to `main` branch
+
+4. **Access Your App:**
+   - After deployment, visit the provided Vercel URL
+   - Login with: `test@gmail.com` / `123456`
+
+### Important Notes:
+
+- The `vercel.json` file is configured to handle client-side routing
+- All routes are rewritten to `/index.html` so React Router works correctly
+- Static assets are cached for optimal performance
+- The app will automatically redeploy when you push to GitHub
+
 ## Project Structure
 
 ```
